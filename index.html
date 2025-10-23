@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Tomorrow - Support & Learning Center for Kids</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">🌈 Bright Tomorrow</h1>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#quotes">Inspiration</a></li>
+                <li><a href="#coping">Coping Skills</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>You Are Stronger Than You Think 💪</h1>
+            <p>Welcome to your safe space. You've been through a lot, but you're here, and that's what matters.</p>
+            <button class="cta-button" onclick="scrollToSection('coping')">Start Your Journey</button>
+        </div>
+    </section>
+
+    <!-- Inspirational Quotes Section -->
+    <section id="quotes" class="quotes-section">
+        <div class="container">
+            <h2>Daily Inspiration ✨</h2>
+            <div class="quote-carousel">
+                <div class="quote-card active">
+                    <p class="quote-text">"Every day may not be good, but there's something good in every day."</p>
+                    <p class="quote-author">- Unknown</p>
+                </div>
+                <div class="quote-card">
+                    <p class="quote-text">"You are braver than you believe, stronger than you seem, and smarter than you think."</p>
+                    <p class="quote-author">- A.A. Milne</p>
+                </div>
+                <div class="quote-card">
+                    <p class="quote-text">"It's okay to not be okay. What's important is that you're trying."</p>
+                    <p class="quote-author">- Unknown</p>
+                </div>
+                <div class="quote-card">
+                    <p class="quote-text">"You can't go back and change the beginning, but you can start where you are and change the ending."</p>
+                    <p class="quote-author">- C.S. Lewis</p>
+                </div>
+                <div class="quote-card">
+                    <p class="quote-text">"The only way out is through, but you don't have to go through it alone."</p>
+                    <p class="quote-author">- Unknown</p>
+                </div>
+            </div>
+            <div class="quote-controls">
+                <button class="quote-btn" onclick="previousQuote()">◀ Previous</button>
+                <button class="quote-btn" onclick="nextQuote()">Next ▶</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coping Strategies Section -->
+    <section id="coping" class="coping-section">
+        <div class="container">
+            <h2>Coping Strategies 🌟</h2>
+            <p class="section-intro">These are tools you can use when things feel overwhelming. Try different ones and see what works for you!</p>
+            
+            <div class="coping-grid">
+                <div class="coping-card">
+                    <div class="icon">🌬️</div>
+                    <h3>Deep Breathing</h3>
+                    <p>Take slow, deep breaths. Breathe in for 4 counts, hold for 4, breathe out for 4.</p>
+                    <button class="try-btn" onclick="startBreathing()">Try Now</button>
+                </div>
+
+                <div class="coping-card">
+                    <div class="icon">✍️</div>
+                    <h3>Journaling</h3>
+                    <p>Write down your thoughts and feelings. It helps to get them out of your head.</p>
+                    <button class="try-btn" onclick="openJournal()">Start Writing</button>
+                </div>
+
+                <div class="coping-card">
+                    <div class="icon">🎨</div>
+                    <h3>Creative Expression</h3>
+                    <p>Draw, paint, or create something. Art can help express what words can't.</p>
+                    <button class="try-btn" onclick="showArtIdeas()">Get Ideas</button>
+                </div>
+
+                <div class="coping-card">
+                    <div class="icon">🏃</div>
+                    <h3>Physical Activity</h3>
+                    <p>Move your body! Dance, walk, stretch - movement helps release stress.</p>
+                    <button class="try-btn" onclick="showExercises()">View Exercises</button>
+                </div>
+
+                <div class="coping-card">
+                    <div class="icon">🧘</div>
+                    <h3>Mindfulness</h3>
+                    <p>Focus on the present moment. Notice 5 things you can see, 4 you can touch, 3 you can hear.</p>
+                    <button class="try-btn" onclick="startMindfulness()">Start Practice</button>
+                </div>
+
+                <div class="coping-card">
+                    <div class="icon">💬</div>
+                    <h3>Talk It Out</h3>
+                    <p>Share your feelings with someone you trust. You don't have to go through this alone.</p>
+                    <button class="try-btn" onclick="showTalkingTips()">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Activities Section -->
+    <section id="activities" class="activities-section">
+        <div class="container">
+            <h2>Fun Activities 🎯</h2>
+            <p class="section-intro">Take your mind off things with these engaging activities!</p>
+
+            <div class="activities-grid">
+                <!-- Gratitude Journal -->
+                <div class="activity-card">
+                    <h3>🙏 Gratitude List</h3>
+                    <p>Write 3 things you're grateful for today</p>
+                    <div class="gratitude-inputs">
+                        <input type="text" placeholder="1. Something that made you smile..." class="gratitude-input">
+                        <input type="text" placeholder="2. Someone who helped you..." class="gratitude-input">
+                        <input type="text" placeholder="3. Something you're looking forward to..." class="gratitude-input">
+                        <button class="submit-btn" onclick="saveGratitude()">Save</button>
+                    </div>
+                </div>
+
+                <!-- Mood Tracker -->
+                <div class="activity-card">
+                    <h3>😊 Mood Tracker</h3>
+                    <p>How are you feeling today?</p>
+                    <div class="mood-buttons">
+                        <button class="mood-btn" onclick="selectMood('great')">😄 Great</button>
+                        <button class="mood-btn" onclick="selectMood('good')">🙂 Good</button>
+                        <button class="mood-btn" onclick="selectMood('okay')">😐 Okay</button>
+                        <button class="mood-btn" onclick="selectMood('sad')">😢 Sad</button>
+                        <button class="mood-btn" onclick="selectMood('stressed')">😰 Stressed</button>
+                    </div>
+                    <div id="mood-message" class="mood-message"></div>
+                </div>
+
+                <!-- Goal Setting -->
+                <div class="activity-card">
+                    <h3>🎯 Daily Goal</h3>
+                    <p>Set one small goal for today</p>
+                    <input type="text" id="daily-goal" placeholder="Example: Read for 15 minutes..." class="goal-input">
+                    <button class="submit-btn" onclick="setGoal()">Set Goal</button>
+                    <div id="goal-display" class="goal-display"></div>
+                </div>
+
+                <!-- Affirmations -->
+                <div class="activity-card">
+                    <h3>💪 Daily Affirmation</h3>
+                    <p>Click for a positive message</p>
+                    <div id="affirmation-display" class="affirmation-display">
+                        Click the button below!
+                    </div>
+                    <button class="submit-btn" onclick="getAffirmation()">Get Affirmation</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources-section">
+        <div class="container">
+            <h2>Helpful Resources 📚</h2>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>🆘 Crisis Support</h3>
+                    <p><strong>National Suicide Prevention Lifeline:</strong><br>
+                    Call or text 988<br>
+                    Available 24/7</p>
+                    <p><strong>Crisis Text Line:</strong><br>
+                    Text HOME to 741741</p>
+                </div>
+
+                <div class="resource-card">
+                    <h3>👥 Support Groups</h3>
+                    <p>Connect with others who understand:</p>
+                    <ul>
+                        <li>Grief support groups</li>
+                        <li>Foster care support networks</li>
+                        <li>Teen support communities</li>
+                        <li>Online peer support</li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📖 Learning Resources</h3>
+                    <p>Helpful websites and tools:</p>
+                    <ul>
+                        <li><a href="https://www.7cups.com" target="_blank">7 Cups - Free emotional support</a></li>
+                        <li><a href="https://www.childwelfare.gov" target="_blank">Child Welfare Information Gateway</a></li>
+                        <li><a href="https://www.samhsa.gov" target="_blank">SAMHSA - Mental Health Resources</a></li>
+                        <li><a href="https://www.kidshealth.org" target="_blank">KidsHealth - Health Information</a></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🎓 Educational Support</h3>
+                    <p>Free learning platforms:</p>
+                    <ul>
+                        <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy - Free courses</a></li>
+                        <li><a href="https://www.duolingo.com" target="_blank">Duolingo - Language learning</a></li>
+                        <li><a href="https://www.codecademy.com" target="_blank">Codecademy - Learn to code</a></li>
+                        <li><a href="https://www.ted.com/talks" target="_blank">TED Talks - Inspiring videos</a></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🎮 Fun & Learning</h3>
+                    <p>Activities to keep your mind engaged:</p>
+                    <ul>
+                        <li>Puzzles and brain games</li>
+                        <li>Reading and audiobooks</li>
+                        <li>Creative writing prompts</li>
+                        <li>Art and music creation</li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <h3>💗 Self-Care Tips</h3>
+                    <p>Taking care of yourself:</p>
+                    <ul>
+                        <li>Get enough sleep (8-10 hours)</li>
+                        <li>Eat nutritious meals</li>
+                        <li>Stay hydrated</li>
+                        <li>Spend time outdoors</li>
+                        <li>Connect with supportive people</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breathing Exercise Modal -->
+    <div id="breathing-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('breathing-modal')">&times;</span>
+            <h2>Breathing Exercise 🌬️</h2>
+            <div class="breathing-circle" id="breathing-circle"></div>
+            <p id="breathing-instruction">Get ready...</p>
+            <button class="modal-btn" onclick="startBreathingAnimation()">Start</button>
+        </div>
+    </div>
+
+    <!-- Journal Modal -->
+    <div id="journal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('journal-modal')">&times;</span>
+            <h2>Your Journal ✍️</h2>
+            <p>Write freely. Your thoughts are safe here.</p>
+            <textarea id="journal-text" placeholder="Today I feel..." rows="10"></textarea>
+            <button class="modal-btn" onclick="saveJournal()">Save Entry</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Remember: You are not alone. You are valued. You matter. 💚</p>
+            <p><small>If you're in crisis, please reach out: Call or text 988 (Suicide & Crisis Lifeline)</small></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
