@@ -227,13 +227,11 @@ function setGoal() {
         localStorage.setItem('goal_' + today, goal);
         
         // Display the goal
-        goalDisplay.innerHTML = `
-            <div class="success-message">
-                ✅ Your goal: "${goal}"
-                <br><br>
-                You can do this! Take it one step at a time.
-            </div>
-        `;
+        const successDiv = document.createElement('div');
+        successDiv.className = 'success-message';
+        successDiv.textContent = `✅ Your goal: "${goal}"\n\nYou can do this! Take it one step at a time.`;
+        goalDisplay.innerHTML = '';
+        goalDisplay.appendChild(successDiv);
         
         goalInput.value = '';
     } else {
@@ -248,11 +246,11 @@ window.addEventListener('DOMContentLoaded', () => {
     
     if (savedGoal) {
         const goalDisplay = document.getElementById('goal-display');
-        goalDisplay.innerHTML = `
-            <div style="background: rgba(255, 255, 255, 0.3); padding: 1rem; border-radius: 10px;">
-                ✅ Today's goal: "${savedGoal}"
-            </div>
-        `;
+        const savedDiv = document.createElement('div');
+        savedDiv.style.cssText = 'background: rgba(255, 255, 255, 0.3); padding: 1rem; border-radius: 10px;';
+        savedDiv.textContent = `✅ Today's goal: "${savedGoal}"`;
+        goalDisplay.innerHTML = '';
+        goalDisplay.appendChild(savedDiv);
     }
 });
 
