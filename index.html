@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bright Tomorrow - Support & Learning Center for Kids</title>
+    <title>Tamariki Toa - Support & Learning Center for Kids</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <h1 class="logo">🌈 Bright Tomorrow</h1>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#quotes">Inspiration</a></li>
-                <li><a href="#coping">Coping Skills</a></li>
-                <li><a href="#activities">Activities</a></li>
-                <li><a href="#resources">Resources</a></li>
+            <h1 class="logo">💪 Tamariki Toa</h1>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#quotes" onclick="closeMobileMenu()">Inspiration</a></li>
+                <li><a href="#coping" onclick="closeMobileMenu()">Coping Skills</a></li>
+                <li><a href="#activities" onclick="closeMobileMenu()">Activities</a></li>
+                <li><a href="#resources" onclick="closeMobileMenu()">Resources</a></li>
             </ul>
         </div>
     </nav>
@@ -115,6 +120,110 @@
         </div>
     </section>
 
+    <!-- New Features Section: Worry Box, Pet, Emotion Wheel -->
+    <section id="new-features" class="new-features-section">
+        <div class="container">
+            <h2>Your Toolkit 🧰</h2>
+            <p class="section-intro">Powerful tools to help you feel better!</p>
+
+            <div class="features-grid">
+                <!-- Worry Box -->
+                <div class="feature-card">
+                    <h3>📦 Worry Box</h3>
+                    <p>Put your worries away for now</p>
+                    <button class="feature-btn" onclick="openWorryBox()">Open Worry Box</button>
+                </div>
+
+                <!-- Virtual Pet -->
+                <div class="feature-card">
+                    <h3>🐾 My Support Buddy</h3>
+                    <p>Your virtual companion</p>
+                    <div id="pet-container" class="pet-container">
+                        <div class="pet-display" id="pet-display">🐶</div>
+                        <div class="pet-name" id="pet-name">Buddy</div>
+                        <div class="pet-mood" id="pet-mood">Happy to see you!</div>
+                        <div class="pet-stats">
+                            <div class="stat-bar">
+                                <span>Health:</span>
+                                <div class="progress-bar"><div id="pet-health" class="progress-fill" style="width: 80%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="feature-btn" onclick="interactWithPet()">Play with Buddy</button>
+                </div>
+
+                <!-- Emotion Wheel -->
+                <div class="feature-card">
+                    <h3>🎨 Emotion Wheel</h3>
+                    <p>Identify how you're feeling</p>
+                    <button class="feature-btn" onclick="openEmotionWheel()">Explore Feelings</button>
+                </div>
+
+                <!-- Crisis Safety Plan -->
+                <div class="feature-card crisis-card">
+                    <h3>🆘 Crisis Safety Plan</h3>
+                    <p>For when you need help right now</p>
+                    <button class="feature-btn crisis-btn" onclick="openCrisisPlan()">View Safety Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Badges Section -->
+    <section id="achievements" class="achievements-section">
+        <div class="container">
+            <h2>Your Achievements 🏆</h2>
+            <p class="section-intro">Celebrate your progress!</p>
+            <div id="badges-container" class="badges-container"></div>
+        </div>
+    </section>
+
+    <!-- Trackers Section -->
+    <section id="trackers" class="trackers-section">
+        <div class="container">
+            <h2>Track Your Progress 📊</h2>
+            <p class="section-intro">Monitor your well-being journey</p>
+
+            <div class="trackers-grid">
+                <!-- Sleep Tracker -->
+                <div class="tracker-card">
+                    <h3>😴 Sleep Tracker</h3>
+                    <p>How did you sleep last night?</p>
+                    <div class="sleep-inputs">
+                        <label>Sleep Quality:</label>
+                        <div class="rating-buttons">
+                            <button class="rating-btn" onclick="rateSleep(1)">😫 Poor</button>
+                            <button class="rating-btn" onclick="rateSleep(2)">😐 Okay</button>
+                            <button class="rating-btn" onclick="rateSleep(3)">😊 Good</button>
+                            <button class="rating-btn" onclick="rateSleep(4)">😄 Great</button>
+                        </div>
+                        <div id="sleep-message" class="tracker-message"></div>
+                    </div>
+                </div>
+
+                <!-- Daily Win Log -->
+                <div class="tracker-card">
+                    <h3>🎉 Daily Win Log</h3>
+                    <p>What went well today?</p>
+                    <input type="text" id="win-input" placeholder="Even small wins count!" class="tracker-input">
+                    <button class="submit-btn" onclick="addWin()">Add Win</button>
+                    <div id="wins-list" class="wins-list"></div>
+                </div>
+
+                <!-- Breathing Game -->
+                <div class="tracker-card">
+                    <h3>🎮 Breathing Game</h3>
+                    <p>Follow the bouncing ball!</p>
+                    <div class="breathing-game-container">
+                        <div id="breathing-ball" class="breathing-ball">⚽</div>
+                        <p id="breathing-game-instruction">Click Start to begin</p>
+                    </div>
+                    <button class="submit-btn" onclick="startBreathingGame()">Start Game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Interactive Activities Section -->
     <section id="activities" class="activities-section">
         <div class="container">
@@ -178,11 +287,16 @@
             <div class="resources-grid">
                 <div class="resource-card">
                     <h3>🆘 Crisis Support</h3>
-                    <p><strong>National Suicide Prevention Lifeline:</strong><br>
-                    Call or text 988<br>
-                    Available 24/7</p>
-                    <p><strong>Crisis Text Line:</strong><br>
-                    Text HOME to 741741</p>
+                    <p><strong>Lifeline Aotearoa:</strong><br>
+                    Call or text 0508 828 865 (0508 TAUTOKO)<br>
+                    Available 24/7, free & confidential</p>
+                    <p><strong>1737 - Need to Talk?</strong><br>
+                    Call or text 1737<br>
+                    Free 24/7 support</p>
+                    <p><strong>Youthline:</strong><br>
+                    Call 0800 376 633<br>
+                    Text 234<br>
+                    Email talk@youthline.co.nz</p>
                 </div>
 
                 <div class="resource-card">
@@ -266,11 +380,120 @@
         </div>
     </div>
 
+    <!-- Worry Box Modal -->
+    <div id="worry-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('worry-modal')">&times;</span>
+            <h2>Worry Box 📦</h2>
+            <p>Put your worries in this box. You can check them later or let them go.</p>
+            <div class="worry-input-section">
+                <textarea id="worry-text" placeholder="What's worrying you?" rows="4"></textarea>
+                <button class="modal-btn" onclick="addWorry()">Add Worry</button>
+            </div>
+            <div id="worry-list" class="worry-list"></div>
+        </div>
+    </div>
+
+    <!-- Emotion Wheel Modal -->
+    <div id="emotion-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('emotion-modal')">&times;</span>
+            <h2>Emotion Wheel 🎨</h2>
+            <p>Click on the emotion that matches how you feel</p>
+            <div class="emotion-wheel">
+                <div class="emotion-group">
+                    <h4>Happy Feelings</h4>
+                    <button class="emotion-btn happy" onclick="selectEmotion('joyful', 'happy')">😄 Joyful</button>
+                    <button class="emotion-btn happy" onclick="selectEmotion('excited', 'happy')">🤩 Excited</button>
+                    <button class="emotion-btn happy" onclick="selectEmotion('content', 'happy')">😌 Content</button>
+                </div>
+                <div class="emotion-group">
+                    <h4>Sad Feelings</h4>
+                    <button class="emotion-btn sad" onclick="selectEmotion('sad', 'sad')">😢 Sad</button>
+                    <button class="emotion-btn sad" onclick="selectEmotion('lonely', 'sad')">😔 Lonely</button>
+                    <button class="emotion-btn sad" onclick="selectEmotion('disappointed', 'sad')">😞 Disappointed</button>
+                </div>
+                <div class="emotion-group">
+                    <h4>Angry Feelings</h4>
+                    <button class="emotion-btn angry" onclick="selectEmotion('angry', 'angry')">😠 Angry</button>
+                    <button class="emotion-btn angry" onclick="selectEmotion('frustrated', 'angry')">😤 Frustrated</button>
+                    <button class="emotion-btn angry" onclick="selectEmotion('annoyed', 'angry')">😒 Annoyed</button>
+                </div>
+                <div class="emotion-group">
+                    <h4>Scared Feelings</h4>
+                    <button class="emotion-btn scared" onclick="selectEmotion('anxious', 'scared')">😰 Anxious</button>
+                    <button class="emotion-btn scared" onclick="selectEmotion('worried', 'scared')">😟 Worried</button>
+                    <button class="emotion-btn scared" onclick="selectEmotion('afraid', 'scared')">😨 Afraid</button>
+                </div>
+            </div>
+            <div id="emotion-response" class="emotion-response"></div>
+        </div>
+    </div>
+
+    <!-- Crisis Safety Plan Modal -->
+    <div id="crisis-modal" class="modal">
+        <div class="modal-content crisis-modal-content">
+            <span class="close" onclick="closeModal('crisis-modal')">&times;</span>
+            <h2>🆘 Crisis Safety Plan</h2>
+            <div class="crisis-steps">
+                <div class="crisis-step">
+                    <h3>Step 1: Recognize Warning Signs</h3>
+                    <p>You might be experiencing:</p>
+                    <ul>
+                        <li>Overwhelming feelings of sadness or hopelessness</li>
+                        <li>Thoughts of harming yourself</li>
+                        <li>Feeling completely alone</li>
+                        <li>Intense anxiety or panic</li>
+                    </ul>
+                </div>
+                
+                <div class="crisis-step urgent">
+                    <h3>Step 2: GET HELP NOW</h3>
+                    <div class="crisis-contacts">
+                        <a href="tel:1737" class="crisis-link">📞 Call/Text 1737</a>
+                        <p><strong>Need to Talk?</strong><br>Available 24/7 - Free & Confidential</p>
+                        
+                        <a href="tel:0508828865" class="crisis-link">� Call 0508 828 865</a>
+                        <p><strong>Lifeline Aotearoa</strong><br>Free counselling 24/7</p>
+
+                        <a href="tel:0800376633" class="crisis-link">📞 Call 0800 376 633</a>
+                        <p><strong>Youthline</strong><br>Support for young people (or text 234)</p>
+                    </div>
+                </div>
+                
+                <div class="crisis-step">
+                    <h3>Step 3: Immediate Coping Strategies</h3>
+                    <ul>
+                        <li>🧊 Hold ice cubes in your hands</li>
+                        <li>🌬️ Take 10 deep breaths</li>
+                        <li>🚶 Go to a safe, public place</li>
+                        <li>📞 Call a trusted adult</li>
+                        <li>🐾 Pet an animal if available</li>
+                    </ul>
+                </div>
+                
+                <div class="crisis-step">
+                    <h3>Step 4: My Support People</h3>
+                    <p>Keep a list of people you can call:</p>
+                    <textarea id="support-people" placeholder="Name and phone number of trusted adults..." rows="4"></textarea>
+                    <button class="modal-btn" onclick="saveSupportPeople()">Save</button>
+                </div>
+                
+                <div class="crisis-step">
+                    <h3>Step 5: My Reasons to Keep Going</h3>
+                    <p>Things that matter to you:</p>
+                    <textarea id="reasons-to-live" placeholder="People, pets, goals, dreams..." rows="4"></textarea>
+                    <button class="modal-btn" onclick="saveReasons()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>Remember: You are not alone. You are valued. You matter. 💚</p>
-            <p><small>If you're in crisis, please reach out: Call or text 988 (Suicide & Crisis Lifeline)</small></p>
+            <p><small>If you're in crisis, please reach out: Call or text 1737 (Need to Talk?) or 0508 828 865 (Lifeline)</small></p>
         </div>
     </footer>
 
